@@ -1,8 +1,11 @@
 # traps/table — `@gravity-ui/table` (TanStack-обвязка)
 
-Только за grouping / tree / DnD / настройку колонок; плоская таблица — uikit `Table` (официальный роутинг). Приоритет у `tsc`.
+Любая новая таблица, включая плоскую только для чтения (официальный роутинг: uikit `Table` с v8 лежит в `uikit/legacy` и остаётся для существующего кода). Приоритет у `tsc`.
 
-- **Импорты:** `ColumnDef` — из главного `@gravity-ui/table` (из `/tanstack` теряется `withNestingStyles` → TS2353); типы `Row`, `ExpandedState` — `import type … from '@gravity-ui/table/tanstack'`. В `cell` нет `info`: `cell: ({getValue}) => getValue()`. Пропа `width` нет (это uikit Table) — `attributes={{style:{width:'100%'}}}`; `stickyHeader` есть (verified 1.21.1 .d.ts).
+- **Установка тянет спутников:** peer-зависимости 1.x — `lodash`, `@dnd-kit/core`, `@dnd-kit/sortable`, `@gravity-ui/i18n`, `@gravity-ui/icons`; ставить вместе с пакетом, даже если перетаскивание не нужно. Линия 2.x требует `@gravity-ui/uikit` ^8 — на uikit 7 брать `^1` (verified 1.26.0).
+- **Плоская таблица — минимум:** `const table = useTable({data, columns, getRowId})` → `<Table table={table} size="s|m" />`. Клик по строке — `onRowClick={(row, event) => …row.original}` (первым аргументом `Row`, не данные); класс строки — `rowClassName`. Колонка без `size` получает 150px: при многих колонках таблица шире области — задай `size` и оберни по пункту «Ширины и скролл».
+
+- **Импорты:** `ColumnDef` — из главного `@gravity-ui/table` (из `/tanstack`, как в README пакета, теряется `withNestingStyles` → TS2353; для плоской таблицы без вложенности годятся оба); типы `Row`, `ExpandedState` — `import type … from '@gravity-ui/table/tanstack'`. В `cell` нет `info`: `cell: ({getValue}) => getValue()`. Пропа `width` нет (это uikit Table) — `attributes={{style:{width:'100%'}}}`; `stickyHeader` есть (verified 1.21.1 .d.ts).
 - **Выбор строк — через `useRowSelectionFixedHandler`** (`{rowSelection, setRowSelection, tableData, getSubRows, getRowId}`) + `enableRowSelection` + **`enableMultiRowSelection: true`** (без него внутри группы чекбоксы как радио); при группах/дереве обязателен (TanStack #4878). Выбор непустой → массовые действия — `snippets/actions-panel-scroll-model.md`.
 - **Per-row actions:** `getActionsColumn<TRow>('_actions', {getRowActions: (item, index) => TableActionConfig[]})` — 2 аргумента, `(item, index)`, не `{row}`; `'_actions'` добавь в `columnOrder`.
 - **`useTableSettings({initialOrdering})`** — массив со ВСЕМИ id, включая `'_select'` и `'_settings'`, иначе служебные уедут в конец; либо не передавай `initialOrdering`.

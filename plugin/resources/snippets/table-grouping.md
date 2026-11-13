@@ -1,11 +1,11 @@
 # Сниппет: @gravity-ui/table — группировка и выбор
 
-> Адресный ресурс. Берётся, когда таблице нужны группировка / tree-rows / DnD колонок (плоская таблица — uikit Table, см. официальный скилл). Источник — recipe-dashboard.md 0.7.x.
+> Адресный ресурс. Берётся, когда таблице нужны группировка / tree-rows / DnD колонок (плоская таблица — тоже `@gravity-ui/table`, минимум — `traps/table.md`). Источник — recipe-dashboard.md 0.7.x.
 
 ## Data table (`@gravity-ui/table`) — обвязка для группировки / выбора (секции ниже)
 
-> **Плоская таблица без группировки/дерева/DnD — это uikit `Table`** (канон сборки — официальный скилл (uikit Table) + `snippets/actions-panel-scroll-model.md`;
-> строка решения в официальный скилл `gravity-ui` (версии — установленный пакет) routing). `@gravity-ui/table` в этом рецепте — ровно за grouping/tree/DnD.
+> **Плоская таблица без группировки/дерева/DnD — тоже `@gravity-ui/table`** (строка решения — routing официального скилла `gravity-ui`; минимум и ловушки —
+> `traps/table.md`). Этот рецепт — обвязка поверх неё для grouping/tree/DnD.
 
 ```tsx
 import {Table, useTable, selectionColumn} from '@gravity-ui/table';
@@ -26,7 +26,7 @@ return <Table table={table} stickyHeader />;
 
 `useTable` — обёртка над `useReactTable` с корректной мемоизацией state. `<Table>` — рендер, `selectionColumn` — готовая колонка чекбоксов с id `'_select'`.
 
-**Не бери для ЭТОГО рецепта:** `@gravity-ui/uikit` `Table` + HOC (у него нет grouping/DnD/tree; для плоской таблицы он и есть канон — официальный скилл (uikit Table) + `snippets/actions-panel-scroll-model.md`); `@gravity-ui/react-data-table` (legacy); `@tanstack/react-table` напрямую (`@gravity-ui/table` — и есть обёртка над ним, плюс хелперы и стилизация; голый TanStack легко приводит к stability-багам, см. TanStack-pitfalls).
+**Не бери для ЭТОГО рецепта:** `@gravity-ui/uikit` `Table` + HOC (legacy с uikit 8, у него нет grouping/DnD/tree; остаётся только в существующем коде); `@gravity-ui/react-data-table` (legacy); `@tanstack/react-table` напрямую (`@gravity-ui/table` — и есть обёртка над ним, плюс хелперы и стилизация; голый TanStack легко приводит к stability-багам, см. TanStack-pitfalls).
 
 ## Data table — selection + grouping
 

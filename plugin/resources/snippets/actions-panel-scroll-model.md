@@ -13,7 +13,8 @@
   **sticky к низу вьюпорта, последним элементом в потоке**. Чисто, без машинерии (verified browser):
 
 ```tsx
-// uikit Table + HOC — плоская таблица — uikit Table по официальному скиллу («DataTable» в uikit НЕ существует);
+// Пример на uikit Table + HOC — так выглядит существующий код (legacy с uikit 8; «DataTable» в uikit НЕ существует).
+// Новая таблица — @gravity-ui/table: selectionColumn + getActionsColumn (traps/table.md); модель панели и скролла та же.
 // 2-й generic внешнего HOC = накопленные пропы внутреннего (traps/uikit «Грабли пропов»):
 const ListTable = withTableActions<Item, WithTableSelectionProps<Item>>(withTableSelection<Item, {}>(Table));
 

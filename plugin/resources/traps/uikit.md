@@ -12,7 +12,7 @@
 | `<Toaster />` как JSX | класс `new Toaster()` + `useToaster()`; дерево провайдеров — `templates/app-shell/README.md` | — |
 | `Badge` / `Chip` / `Tag` | `Label` | — |
 | `Modal` с `title` | `Dialog` (`Header` / `Body` / `Footer`) | `Modal` низкоуровневый |
-| `Table.Head/Row/Cell` | uikit `Table` — `data`/`columns`, подкомпонентов нет; группировка/дерево → `@gravity-ui/table` | рефлекс из HTML/MUI |
+| `Table.Head/Row/Cell` | новая таблица — `@gravity-ui/table` (`traps/table.md`); uikit `Table` (legacy, существующий код) — `data`/`columns`, подкомпонентов нет | рефлекс из HTML/MUI |
 
 ## Пропы
 | Компонент | Грабли | Правильно |

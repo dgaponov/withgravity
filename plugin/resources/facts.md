@@ -12,6 +12,9 @@
 | `operation.destructive` | операция необратима (удаление) | бриф |
 | `collection.selectable` | у списка есть выбор строк | бриф / код |
 | `collection.hasBulkActions` | над выбором есть массовое действие | бриф |
+| `collection.filterable` | у списка есть поиск, фильтры или переключатель вида | бриф / код |
+| `nav.hasDetailLevel` | из списка открывается экран или панель одной записи | бриф / код |
+| `data.canGoStale` | запись могут изменить другие люди или процессы, пока экран открыт | бриф |
 | `layout.scrollMode` | `document` (скроллит страница) или `bounded` (область) | профиль / код shell |
 | `layout.hasPinnedChrome` | есть закреплённые шапка/футер/панель | код shell |
 | `surface.usesBrandBackground` | есть контент на бренд-фоне: **action-кнопка (view=action) — уже true**, как и brand-Label, выбранный сегмент, бренд-шапка | код / профиль / макет |

@@ -9,6 +9,7 @@
     {"id": "ideal", "scope": "screen", "applies_to": {"all": []}, "show": "обычный рендер", "reach": "—", "required": true, "check": {"method": "browser", "id": "scenario-walk"}},
     {"id": "operation.pending", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasSubmit", "eq": true}, {"fact": "operation.async", "eq": true}]}, "show": "кнопка disabled + Loader, поля заблокированы", "reach": "реальный submit", "required": true, "check": {"method": "browser", "id": "submit-pending-error"}},
     {"id": "operation.failed", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasSubmit", "eq": true}, {"fact": "operation.async", "eq": true}]}, "show": "сообщение в контексте формы, форма открыта, ввод сохранён", "reach": "ошибка submit", "required": true, "check": {"method": "browser", "id": "submit-pending-error"}},
-    {"id": "unsaved", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasDirtyData", "eq": true}]}, "show": "подтверждение «Закрыть без сохранения?»", "reach": "закрытие с изменениями", "required": true, "check": {"method": "browser", "id": "unsaved-guard"}}
+    {"id": "unsaved", "scope": "operation", "applies_to": {"all": [{"fact": "form.hasDirtyData", "eq": true}]}, "show": "подтверждение «Закрыть без сохранения?»", "reach": "закрытие с изменениями", "required": true, "check": {"method": "browser", "id": "unsaved-guard"}},
+    {"id": "stale", "scope": "screen|operation", "applies_to": {"all": [{"fact": "data.canGoStale", "eq": true}]}, "show": "время получения данных + обновление; при сохранении поверх изменившегося — конфликт с тремя значениями и выбором", "reach": "запись изменена в источнике, пока экран открыт", "required": false, "check": {"method": "browser", "id": "stale-conflict"}}
   ]
 }

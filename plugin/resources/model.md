@@ -9,6 +9,7 @@
 | Service | `service-profile.json` + `theme/` (+ `themeConfig.variants`) + `libraries` в проекте / пресете-скилле (`profile/preset-skill.md`) / пакете команды (`pack.json` → `profiles[].has`) | схему, валидатор (`profile/validate.mjs`), как применять (`profile/README.md`) |
 | Template (app · screen · section) | `templates/<id>/` в пакете команды; у плагина — только `app-shell` | карточка источника (версия, перечень изменений, адресация экранов) и запись использования `TemplateUse` (`mode: copy \| import`); операции: взять (build) · изменить источник (profile) · сравнить (verify) |
 | State | `states.json` | виды состояний с применимостью, показом, достижением, проверкой |
+| Pattern | `patterns.md` — выбор способа показа, список и запись, фильтры, устаревающие данные | объяснение выбора; обязательное оттуда — записи Convention |
 | Convention | `conventions.json` (owner plugin) · `profile.conventions[]` (owner service) | запись: `id · applies_to{all:[{fact,eq}]} · owner · strength · rule · how · check{method,id} · source` |
 | AcceptancePlan | `acceptance-plan.json` в проекте (пишет build) | формат — `facts.md`; verify пересчитывает применимость сам, бренд-признак сверяет с DOM, остальные — из плана |
 | Scenario | `scenarios.manifest.json` + панель | формат манифеста (`scenarios.md`) |

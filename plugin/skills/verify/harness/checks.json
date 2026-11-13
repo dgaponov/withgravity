@@ -103,6 +103,46 @@
   "partial-render": {
    "method": "browser",
    "implemented": "human"
+  },
+  "surface-choice": {
+   "method": "human",
+   "implemented": "human"
+  },
+  "detail-deeplink": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "detail-way-back": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "return-keeps-view": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "filters-list-first": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "filters-reset": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "filtered-empty": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "filters-order": {
+   "method": "human",
+   "implemented": "human"
+  },
+  "data-freshness": {
+   "method": "browser",
+   "implemented": "human"
+  },
+  "stale-conflict": {
+   "method": "browser",
+   "implemented": "human"
   }
  }
 }
